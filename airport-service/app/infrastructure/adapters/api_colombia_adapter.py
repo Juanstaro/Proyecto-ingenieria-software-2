@@ -9,11 +9,13 @@ class ApiColombiaAdapter(AirportProvider):
 
     def adapt(self, data):
         return Airport(
-            id=data["id"],
-            name=data["name"],
-            latitude=data["latitude"],
-            longitude=data["longitude"]
-        )
+        id=data["id"],
+        name=data["name"],
+
+        # IMPORTANTE:
+        latitude=float(data["longitude"]),
+        longitude=float(data["latitude"])
+    )
 
     def get_airports(self):
         data = self.client.get_airports()
