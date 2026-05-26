@@ -8,20 +8,27 @@ class ApiColombiaAdapter(AirportProvider):
         self.client = ApiColombiaClient()
 
     def adapt(self, data):
-        return Airport(
-        id=data["id"],
-        name=data["name"],
 
-        # IMPORTANTE:
-        latitude=float(data["longitude"]),
-        longitude=float(data["latitude"])
-    )
+        return Airport(
+            id=data["id"],
+            name=data["name"],
+
+            # Coordenadas corregidas
+            latitude=float(data["longitude"]),
+            longitude=float(data["latitude"])
+        )
 
     def get_airports(self):
+
         data = self.client.get_airports()
-        return [self.adapt(item) for item in data]
+
+        return [
+            self.adapt(item)
+            for item in data
+        ]
 
     def get_airport_by_id(self, airport_id: int):
+
         data = self.client.get_airport_by_id(airport_id)
 
         if not data:
