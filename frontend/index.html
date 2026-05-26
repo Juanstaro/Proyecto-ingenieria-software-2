@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Travel System</title>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>✈ Travel System</h1>
+
+</header>
+
+<section class="hero">
+
+    <h2>
+        Sistema de Itinerarios Personales
+    </h2>
+
+    <p>
+        Arquitectura de Microservicios
+    </p>
+
+</section>
+
+<section class="container">
+
+    <div class="left">
+
+        <div class="card">
+
+            <h2>Crear Itinerario</h2>
+
+            <form id="itinerary-form">
+
+                <input type="text"
+                       id="user_name"
+                       placeholder="Nombre del usuario"
+                       required>
+
+                <input type="number"
+                       id="departure_airport"
+                       placeholder="ID Aeropuerto Salida"
+                       required>
+
+                <input type="number"
+                       id="arrival_airport"
+                       placeholder="ID Aeropuerto Llegada"
+                       required>
+
+                <input type="date"
+                       id="travel_date"
+                       required>
+
+                <input type="number"
+                       id="duration_minutes"
+                       placeholder="Duración en minutos"
+                       required>
+
+                <button type="submit">
+                    Crear Itinerario
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Itinerarios</h2>
+
+            <div id="itineraries-list"></div>
+
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <div class="card">
+
+            <h2>Aeropuertos de Colombia</h2>
+
+            <div id="map"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
