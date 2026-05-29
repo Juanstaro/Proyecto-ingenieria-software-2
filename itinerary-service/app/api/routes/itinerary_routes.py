@@ -38,7 +38,12 @@ def get_itineraries():
 
     return itineraries
 
-@router.delete("/itineraries/{itinerary_id}")
+@router.delete(
+    "/itineraries/{itinerary_id}",
+    responses={
+        404: {"description": "Itinerary not found"}
+    }
+)
 def delete_itinerary(itinerary_id: int):
 
     db = SessionLocal()
