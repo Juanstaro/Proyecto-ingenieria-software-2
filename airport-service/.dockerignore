@@ -1,0 +1,28 @@
+# Ignorar el historial de Git
+.git
+.gitignore
+
+# Ignorar entornos virtuales de Python
+venv/
+.venv/
+env/
+ENV/
+pyvenv.cfg
+
+# Ignorar archivos de configuración de editores
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ignorar cachés de Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# CRÍTICO: Ignorar archivos de variables de entorno y secretos
+.env
+*.local
+sonar.token
