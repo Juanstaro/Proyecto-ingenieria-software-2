@@ -76,8 +76,6 @@ async function loadItineraries() {
     })
 }
 
-// Nota: Esta función la dejamos igual ya que no se ejecuta en el top-level,
-// sino mediante el atributo "onclick" del HTML.
 async function deleteItinerary(id) {
     await fetch(
         `http://localhost:8001/itineraries/${id}`,
@@ -99,20 +97,27 @@ document.getElementById(
             user_name: document.getElementById(
                 'user_name'
             ).value,
-            departure_airport: parseInt(
+
+            // CAMBIO 1: Number.parseInt
+            departure_airport: Number.parseInt(
                 document.getElementById(
                     'departure_airport'
                 ).value
             ),
-            arrival_airport: parseInt(
+
+            // CAMBIO 2: Number.parseInt
+            arrival_airport: Number.parseInt(
                 document.getElementById(
                     'arrival_airport'
                 ).value
             ),
+            
             travel_date: document.getElementById(
                 'travel_date'
             ).value,
-            duration_minutes: parseInt(
+
+            // CAMBIO 3: Number.parseInt
+            duration_minutes: Number.parseInt(
                 document.getElementById(
                     'duration_minutes'
                 ).value
@@ -143,8 +148,6 @@ document.getElementById(
     }
 )
 
-// --- LA SOLUCIÓN AQUÍ ---
-// Ejecutamos ambas promesas en paralelo en la raíz del archivo usando Top-level await
 try {
     await Promise.all([loadAirports(), loadItineraries()]);
 } catch (error) {

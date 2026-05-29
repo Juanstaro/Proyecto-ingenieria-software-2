@@ -9,7 +9,13 @@ service = AirportService()
 def get_airports():
     return service.get_airports()
 
-@router.get("/airports/{airport_id}")
+# Aplicamos la corrección documentando el 404 en las respuestas de este endpoint
+@router.get(
+    "/airports/{airport_id}",
+    responses={
+        404: {"description": "Airport not found"}
+    }
+)
 def get_airport_by_id(airport_id: int):
 
     airport = service.get_airport_by_id(airport_id)
